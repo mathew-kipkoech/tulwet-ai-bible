@@ -1,125 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TULWET AI BIBLE - Global Mother Tongue Video Call</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tulwet Fixed</title>
 <style>
-body{margin:0;background:#000;color:#fff;font-family:Arial;text-align:center;padding:8px}
-h1{color:gold;margin:6px;font-size:20px}
-#callBox{position:relative;width:100%;max-width:480px;margin:10px auto;background:#111;border-radius:20px;overflow:hidden;aspect-ratio:9/16;border:2px solid #222}
-video{width:100%;height:100%;object-fit:cover}
-#overlay{position:absolute;bottom:0;width:100%;background:linear-gradient(transparent,rgba(0,0,0,0.95));padding:12px}
-.controls{display:flex;justify-content:center;gap:18px;padding:12px}
-.ctrl{width:62px;height:62px;border-radius:50%;border:none;font-size:24px;cursor:pointer}
-.red{background:#ff2a2a;color:#fff}.green{background:#00c853;color:#fff;animation:pulse 1.5s infinite}.goldBg{background:gold;color:#000}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-input,select,textarea{width:92%;padding:11px;border-radius:12px;border:none;margin:4px 0;font-size:14px}
-.tbar{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin:6px}
-.tbtn{padding:8px 9px;border-radius:10px;border:none;font-size:10px;color:#fff;cursor:pointer}
+body{margin:0;background:#f0fdf4;font-family:Arial}
+.h{background:#166534;color:#fff;padding:14px;text-align:center}
+.s{padding:12px}
+input{width:100%;padding:13px;border-radius:12px;border:2px solid #166534}
+.card{background:#fff;margin:10px;padding:14px;border-radius:12px}
+.card.a{border:3px solid #16a34a;background:#dcfce7}
+.v{background:#000;margin:12px;border-radius:15px;padding:12px;text-align:center}
+#av{width:100%;height:300px;border-radius:12px;background:#111}
+.live{border:5px solid #22c55e}
+.b{padding:14px 20px;border:none;border-radius:30px;font-weight:bold;margin:5px}
+.call{background:#facc15;width:70%}
+.end{background:#ef4444;color:#fff}
+.mic{background:#16a34a;color:#fff}
 </style>
 </head>
 <body>
-<h1>⛰️ TULWET AI BIBLE 🌍</h1>
-<div style="font-size:9px">Holy Mountain Bomet Kenya → World • Global Mother Tongue</div>
-<div id="loc" style="color:gold;font-size:11px;margin:3px">📍 Detecting...</div>
-<div style="background:#111;border:1px solid gold;border-radius:8px;padding:3px;font-size:10px">👥 <span id="ucount">...</span> | 🔒 Private | 🎤 Blind Voice | 12 Languages</div>
-
-<!-- INTERNATIONAL LANGUAGES - 12 WORLD -->
-<select id="langSel" style="background:#222;color:gold;border:1px solid gold">
-<option value="auto">🌍 AUTO Detect (Bomet=Kalenjin, Kisumu=Luo, Mexico=Spanish...)</option>
-<option value="kln">Kalenjin - Rift Valley</option>
-<option value="luo">Dholuo - Nyanza</option>
-<option value="sw">Swahili - Kenya/TZ</option>
-<option value="ki">Kikuyu - Central</option>
-<option value="en">English - Global</option>
-<option value="es">🇪🇸 Spanish - Mexico/USA/Spain</option>
-<option value="fr">🇫🇷 French - Congo/Cameroon</option>
-<option value="pt">🇵🇹 Portuguese - Brazil/Mozambique</option>
-<option value="hi">🇮🇳 Hindi - India</option>
-<option value="am">🇪🇹 Amharic - Ethiopia</option>
-<option value="yo">🇳🇬 Yoruba - Nigeria</option>
-<option value="ig">🇳🇬 Igbo - Nigeria</option>
-</select>
-
-<textarea id="problemInput" placeholder="Type problem: Niko mgonjwa / Estoy ansioso / I have anxiety / Nina hofu"></textarea>
-<button onclick="solveProblem()" style="width:92%;background:gold;color:#000;padding:12px;border-radius:12px;border:none;font-weight:bold">🙏 PROBLEM → VIDEO SERMON CALL</button>
-
-<div class="tbar">
-<button class="tbtn" style="background:#7c4dff" onclick="startTherapy('anxiety')">😰 Anxiety</button>
-<button class="tbtn" style="background:#ff4081" onclick="startTherapy('marriage')">💔 Marriage</button>
-<button class="tbtn" style="background:#455a64" onclick="startTherapy('grief')">🕊️ Grief</button>
-<button class="tbtn" style="background:#ff6f00" onclick="startTherapy('addiction')">🍺 Addiction</button>
-<button class="tbtn" style="background:#00897b" onclick="startTherapy('depression')">😔 Depression</button>
-</div>
-
-<select id="testament"><option value="all">📖 ALL 66 Books</option><option value="old">📜 OLD 39</option><option value="new">✝️ NEW 27</option></select>
-<input id="verseIn" value="Matthew 7:7" placeholder="Verse: Matthew 7:7">
-<input id="apiKey" type="password" placeholder="HeyGen Key sk_... for REAL Mzungu video">
-
-<div id="callBox">
-<video id="vid" autoplay loop playsinline poster="https://i.imgur.com/8Km9tLL.jpg"></video>
-<div id="overlay">
-<div id="status" style="color:gold;font-weight:bold;font-size:11px">🔴 READY - Tap 📞 to Call from Tulwet Mountain</div>
-<div id="verseTxt" style="font-size:12px">Mzungu speaks your mother tongue</div>
-<div id="localTxt" style="color:gold;font-weight:bold;font-size:14px"></div>
-<div id="engTxt" style="font-size:10px;color:#aaa;margin-top:3px"></div>
+<div class="h"><h2>⛰️ TULWET AI BIBLE</h2><div>📍 Eldoret - FIXED ✅</div></div>
+<div class="s"><input id="q" placeholder="Type: fear, anxiety, sick..." oninput="find(this.value)"></div>
+<div id="list"></div>
+<div class="v">
+<div id="st" style="color:white">READY - Tap CALL</div>
+<img id="av" src="https://i.pravatar.cc/400?img=32">
+<div id="vt" style="color:white;margin:10px">Select verse then CALL</div>
+<div>
+<button class="b end" onclick="stop()">❌</button>
+<button class="b call" onclick="go()">📞 CALL FROM TULWET</button>
+<button class="b mic" onclick="mic()">🎤</button>
 </div>
 </div>
-
-<div class="controls">
-<button class="ctrl red" onclick="endCall()">✕</button>
-<button class="ctrl goldBg" onclick="runBible()" id="callBtn">📞</button>
-<button class="ctrl green" onclick="listen()" id="micBtn">🎤</button>
-</div>
-<div id="heard" style="font-size:10px;color:#aaa"></div>
-
-<!-- INTERNATIONAL PAYWALL -->
-<div id="paywall" style="display:none;background:#151515;border:1px solid gold;border-radius:14px;padding:10px;margin:8px 0">
-<h3 style="color:gold">🔒 3 Free Calls Done</h3>
-<div id="payKenya"><p>Kenya: 100 KES/week</p><button style="background:gold;color:#000;padding:10px;width:90%;border-radius:10px;border:none;font-weight:bold">💰 M-PESA</button></div>
-<div id="payGlobal" style="margin-top:6px"><p>Global: $4.99/month (vs $49.99 US apps)</p><button style="background:#fff;color:#000;padding:10px;width:90%;border-radius:10px;border:none;font-weight:bold">💳 PayPal / Stripe</button></div>
-</div>
-
-<audio id="ringTone" loop preload="auto"><source src="https://cdn.pixabay.com/audio/2022/03/24/audio_2a8a5d8320.mp3" type="audio/mpeg"></audio>
-<audio id="connectTone" preload="auto"><source src="https://cdn.pixabay.com/audio/2021/08/04/audio_0625c8b9d2.mp3" type="audio/mpeg"></audio>
-
-<footer style="font-size:8px;color:#555;padding:10px">© 2026 TULWET AI BIBLE INTERNATIONAL - Born on Tulwet Holy Mountain Bomet Kenya 6 Oct 2026. Original: GPS Auto Language (Bomet=Kalenjin etc), Voice for Blind, Problem→Sermon Video Call, Talk Therapy Video Call in 12 mother tongues. NDA Protected. Global: tulwet.ai</footer>
-
 <script>
-let curLang="kln", curCounty="Bomet", freeCount=0;
-const ringTone=document.getElementById("ringTone"), connectTone=document.getElementById("connectTone");
-// INTERNATIONAL MAP - County + Country auto
-const COUNTY_LANG={Bomet:"kln",Kericho:"kln",Nandi:"kln",Kisumu:"luo",Siaya:"luo",Homa:"luo",Kiambu:"ki",Nairobi:"sw"},
-COUNTRY_LANG={KE:"sw",UG:"sw",TZ:"sw",ES:"es",MX:"es",AR:"es",US:"en",GB:"en",FR:"fr",CD:"fr",CM:"fr",BR:"pt",MZ:"pt",PT:"pt",IN:"hi",ET:"am",NG:"yo",KE2:"kln"};
-const PROBLEMS={"mgonjwa,sick,ill,ugonjwa,enfermo":{v:"Isaiah 53:5",s:"Healer"}, "hofu,fear,anxiety,waswasi,ansioso,anxious":{v:"Isaiah 41:10",s:"Fear not"}, "deni,money,debt,pesa,dinero":{v:"Philippians 4:19",s:"Provider"}, "ndoa,marriage,matrimonio,divorce":{v:"1 Corinthians 13:7",s:"Love"}, "kifo,death,muerte,grief":{v:"John 11:25",s:"Resurrection"}, "nguvu,strength,fuerza,choka":{v:"Isaiah 40:31",s:"Strength"}, "omba,ask,seek,pide":{v:"Matthew 7:7",s:"Ask"}};
-const THERAPY={
-anxiety:{verse:"Philippians 4:6-7",intro:"I see anxiety. Breathe with me. God says:",th:"Anxiety heavy. Breathe 1..2..3.. Worry valid. God guards heart. Not alone on Tulwet."},
-marriage:{verse:"1 Corinthians 13:4",intro:"Marriage hard. I listen no judge. Bible:",th:"Love patient. Tell hurts. I listen. Communication heals."},
-grief:{verse:"Psalm 34:18",intro:"Sorry loss. Pain seen. God:",th:"Grief no timeline. Cry if need. Here with you. Loved remembered."},
-addiction:{verse:"1 Corinthians 10:13",intro:"Brave seek help. Stronger than think. Word:",th:"Addiction battle not identity. One day at time. First step today."},
-depression:{verse:"Psalm 42:11",intro:"Depression heavy. I hear you. God:",th:"Why downcast soul? Hope in God. Dark today not forever. You matter."}
-};
-async function detectLoc(){
-try{
-let d=await fetch("https://ipapi.co/json/").then(r=>r.json());
-curCounty=d.region||d.country_code;
-let cLang=COUNTY_LANG[curCounty]||COUNTRY_LANG[d.country_code]||"en";
-curLang=cLang;
-loc.innerText=`📍 ${d.city}, ${d.region}, ${d.country_name} | Auto: ${curLang}`;
-let isKE=d.country_code==="KE";
-document.getElementById("payKenya").style.display=isKE?"block":"none";
-document.getElementById("payGlobal").style.display=isKE?"none":"block";
-fetch(`https://api.countapi.xyz/hit/tulwet-global-${new Date().toISOString().slice(0,10)}/visits`).then(r=>r.json()).then(dd=>{ucount.innerText=dd.value+" global today";});
-}catch(e){loc.innerText="📍 Bomet Kenya | kln | Global mode"; ucount.innerText="Live worldwide";}
-}detectLoc();
-function playRing(){ringTone.volume=0.6; ringTone.play().catch(()=>{}); callBox.style.border="2px solid gold"; callBox.style.boxShadow="0 0 25px gold";}
-function stopRing(){ringTone.pause(); ringTone.currentTime=0; callBox.style.border="2px solid #222"; callBox.style.boxShadow="none"; connectTone.play().catch(()=>{});}
-function parseVoice(t){t=t.toLowerCase().replace(/seven|saba/g,"7").replace(/three/g,"3"); let m=t.match(/(matthew|matayo|john|yohana|psalm|zaburi|isaiah|isaya|genesis)\s+(\d+)\s*[:\s]\s*(\d+)/); if(m){let b=m[1]; if(b==="matayo")b="Matthew"; if(b==="yohana")b="John"; if(b==="zaburi")b="Psalm"; if(b==="isaya")b="Isaiah"; return `${b} ${m[2]}:${m[3]}`;} return t;}
-function listen(){let SR=window.SpeechRecognition||window.webkitSpeechRecognition; if(!SR)return alert("Use Chrome"); let r=new SR(); r.lang="en-US"; r.start(); micBtn.innerText="🎧"; status.innerText="🎧 Listening... Sema / Habla / Speak"; r.onresult=e=>{let sp=e.results[0][0].transcript; heard.innerText="Heard: "+sp; verseIn.value=parseVoice(sp); micBtn.innerText="🎤"; runBible();};}
-async function solveProblem(){let p=problemInput.value.toLowerCase(); if(!p)return alert("Andika shida / Write problem"); let found=PROBLEMS["omba,ask"]; for(let k in PROBLEMS){if(k.split(",").some(w=>p.includes(w))){found=PROBLEMS[k];break;}} verseIn.value=found.v; await runBible(p+" - "+found.s);}
-async function startTherapy(type){let data=THERAPY[type]; problemInput.value=`Therapy ${type}`; verseIn.value=data.verse; playRing(); status.innerText=`💜 THERAPY RINGING ${type} Private`; await new Promise(r=>setTimeout(r,1500)); let bible=await fetch(`https://bible-api.com/${encodeURIComponent(data.verse)}?translation=kjv`).then(r=>r.json()); verseTxt.innerText=data.intro; engTxt.innerText=bible.reference+": "+bible.text; try{let useLang=langSel.value==="auto"?curLang:langSel.value; let tr=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(data.th)}&langpair=en|${useLang}`).then(r=>r.json()); localTxt.innerText=`🫂 (${useLang}): ${tr.responseData.translatedText}`;}catch(e){localTxt.innerText=`🫂: ${data.th}`;} stopRing(); vid.src="https://cdn.pixabay.com/video/2020/07/30/45524-442803881_large.mp4"; vid.muted=false; vid.play(); status.innerText=`✅ THERAPY LIVE ${type} 🔒 Confidential Tulwet`;}
-async function runBible(problemText=""){if(freeCount>=3){paywall.style.display="block"; return;} freeCount++; playRing(); callBtn.innerText="⏳"; status.innerText="📞 RINGING Tulwet Mountain..."; await new Promise(r=>setTimeout(r,1800)); let verse=verseIn.value||"Matthew 7:7"; let useLang=langSel.value==="auto"?curLang:langSel.value; let bible=await fetch(`https://bible-api.com/${encodeURIComponent(verse)}?translation=kjv`).then(r=>r.json()); engTxt.innerText=bible.reference+": "+bible.text; verseTxt.innerText=bible.reference; let textForVideo=bible.text+(problemText?" "+problemText:""); try{let tr=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(textForVideo)}&langpair=en|${useLang}`).then(r=>r.json()); localTxt.innerText=`🗣️ (${useLang}): ${tr.responseData.translatedText}`; textForVideo=tr.responseData.translatedText;}catch(e){localTxt.innerText=`🗣️ (${useLang}): ${textForVideo}`;} stopRing(); if(!apiKey.value){status.innerText=`✅ CALL CONNECTED ${useLang} Text mode`; vid.src="https://cdn.pixabay.com/video/2020/07/30/45524-442803881_large.mp4"; vid.muted=false; vid.play(); callBtn.innerText="📞"; return;} status.innerText="🎬 Generating REAL video..."; let vRes=await fetch("https://api.heygen.com/v2/video/generate",{method:"POST",headers:{"X-Api-Key":apiKey.value,"Content-Type":"application/json"},body:JSON.stringify({video_inputs:[{character:{type:"avatar",avatar_id:"Wayne_20240711"},voice:{type:"text",input_text:textForVideo},background:{type:"color",value:"#111"}}],dimension:{width:720,height:1280}})}).then(r=>r.json()); let vidId=vRes.data.video_id; let check=setInterval(async()=>{let s=await fetch(`https://api.heygen.com/v1/video_status.get?video_id=${vidId}`,{headers:{"X-Api-Key":apiKey.value}}).then(r=>r.json()); if(s.data.status==="completed"){clearInterval(check); vid.src=s.data.video_url; vid.muted=false; vid.play(); status.innerText=`✅ LIVE ${useLang}!`; callBtn.innerText="📞";}else status.innerText=`⏳ ${s.data.status}...`;},4000);}
-function endCall(){stopRing(); vid.pause(); vid.src=""; status.innerText="🔴 ENDED Tap 📞 again"; callBtn.innerText="📞";}
+const DB={anxiety:["Philippians 4:6-7 - Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.","1 Peter 5:7 - Cast all your anxiety on him because he cares for you."],fear:["Isaiah 41:10 - So do not fear, for I am with you; do not be dismayed, for I am your God."],sick:["Jeremiah 30:17 - But I will restore you to health and heal your wounds, declares the Lord."],default:["Matthew 7:7 - Ask and it will be given to you; seek and you will find; knock and the door will be opened."]};
+let sel=DB.default[0];
+function find(t){t=t.toLowerCase();let k="default";if(t.includes("anx"))k="anxiety";else if(t.includes("fear"))k="fear";else if(t.includes("sick"))k="sick";render(DB[k])}
+function render(a){let L=document.getElementById("list");L.innerHTML="";a.forEach((v,i)=>{let d=document.createElement("div");d.className="card"+(i==0?" a":"");d.innerHTML="<b>"+v.split(" - ")[0]+"</b><br>"+v.split(" - ").slice(1)+"<br><small style=color:green>👆 TAP TO SELECT</small>";d.onclick=()=>{document.querySelectorAll(".card").forEach(c=>c.classList.remove("a"));d.classList.add("a");sel=v;document.getElementById("vt").innerText=v};L.appendChild(d)});sel=a[0];document.getElementById("vt").innerText=sel}
+function go(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sel+". Sermon from Tulwet Mountain. God loves you.");u.rate=0.9;document.getElementById("av").classList.add("live");document.getElementById("st").innerText="🔴 LIVE...";u.onend=()=>{document.getElementById("av").classList.remove("live");document.getElementById("st").innerText="✅ Done"};speechSynthesis.speak(u)}
+function stop(){speechSynthesis.cancel();document.getElementById("av").classList.remove("live");document.getElementById("st").innerText="READY"}
+function mic(){let R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R)return alert("Use Chrome");let r=new R();r.onresult=e=>{document.getElementById("q").value=e.results[0][0].transcript;find(e.results[0][0].transcript)};r.start()}
+find("anxiety");
 </script>
 </body>
 </html>
