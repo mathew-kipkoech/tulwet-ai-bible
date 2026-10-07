@@ -3,46 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tulwet Fixed</title>
+<title>TULWET MERGE + SASA</title>
 <style>
-body{margin:0;background:#f0fdf4;font-family:Arial}
-.h{background:#166534;color:#fff;padding:14px;text-align:center}
-.s{padding:12px}
-input{width:100%;padding:13px;border-radius:12px;border:2px solid #166534}
-.card{background:#fff;margin:10px;padding:14px;border-radius:12px}
-.card.a{border:3px solid #16a34a;background:#dcfce7}
-.v{background:#000;margin:12px;border-radius:15px;padding:12px;text-align:center}
-#av{width:100%;height:300px;border-radius:12px;background:#111}
-.live{border:5px solid #22c55e}
-.b{padding:14px 20px;border:none;border-radius:30px;font-weight:bold;margin:5px}
-.call{background:#facc15;width:70%}
-.end{background:#ef4444;color:#fff}
-.mic{background:#16a34a;color:#fff}
+body{margin:0;background:#000;color:#fff;font-family:Arial;height:100vh;overflow:hidden}
+.h{background:#166534;padding:8px;display:flex;justify-content:space-between;flex-wrap:wrap}
+video{width:100%;height:55vh;object-fit:cover;background:#111}
+.box{background:#14532d;padding:10px;margin:8px;border-radius:10px;max-height:30vh;overflow:auto}
+.b{padding:10px 15px;border:none;border-radius:20px;font-weight:bold;margin:3px}
+.sasa{background:#16a34a;color:#fff;border:2px solid #fff}
+.play{background:#facc15}
 </style>
 </head>
 <body>
-<div class="h"><h2>⛰️ TULWET AI BIBLE</h2><div>📍 Eldoret - FIXED ✅</div></div>
-<div class="s"><input id="q" placeholder="Type: fear, anxiety, sick..." oninput="find(this.value)"></div>
-<div id="list"></div>
-<div class="v">
-<div id="st" style="color:white">READY - Tap CALL</div>
-<img id="av" src="https://i.pravatar.cc/400?img=32">
-<div id="vt" style="color:white;margin:10px">Select verse then CALL</div>
-<div>
-<button class="b end" onclick="stop()">❌</button>
-<button class="b call" onclick="go()">📞 CALL FROM TULWET</button>
-<button class="b mic" onclick="mic()">🎤</button>
-</div>
+<div class="h"><b>⛰️ TULWET MERGE + SASA</b><span>🌍 12,847 🟢 127</span></div>
+<video id="v" autoplay loop muted playsinline src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
+<div class="box" id="box">✅ MERGED READY!<br>📖 Healing, Fees, Fear<br>🎭 Exodus Play - Moses & Red Sea<br>📤 SASA Share ready</div>
+<div style="padding:8px;display:flex;flex-wrap:wrap">
+<button class="b play" onclick="document.getElementById('v').play()">▶️ PLAY</button>
+<button class="b sasa" onclick="shareSasa()">📤 SHARE TO SASA APP ONLY</button>
+<button class="b" style="background:#fff" onclick="location.href='sasa://open'">🚀 OPEN SASA</button>
 </div>
 <script>
-const DB={anxiety:["Philippians 4:6-7 - Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.","1 Peter 5:7 - Cast all your anxiety on him because he cares for you."],fear:["Isaiah 41:10 - So do not fear, for I am with you; do not be dismayed, for I am your God."],sick:["Jeremiah 30:17 - But I will restore you to health and heal your wounds, declares the Lord."],default:["Matthew 7:7 - Ask and it will be given to you; seek and you will find; knock and the door will be opened."]};
-let sel=DB.default[0];
-function find(t){t=t.toLowerCase();let k="default";if(t.includes("anx"))k="anxiety";else if(t.includes("fear"))k="fear";else if(t.includes("sick"))k="sick";render(DB[k])}
-function render(a){let L=document.getElementById("list");L.innerHTML="";a.forEach((v,i)=>{let d=document.createElement("div");d.className="card"+(i==0?" a":"");d.innerHTML="<b>"+v.split(" - ")[0]+"</b><br>"+v.split(" - ").slice(1)+"<br><small style=color:green>👆 TAP TO SELECT</small>";d.onclick=()=>{document.querySelectorAll(".card").forEach(c=>c.classList.remove("a"));d.classList.add("a");sel=v;document.getElementById("vt").innerText=v};L.appendChild(d)});sel=a[0];document.getElementById("vt").innerText=sel}
-function go(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sel+". Sermon from Tulwet Mountain. God loves you.");u.rate=0.9;document.getElementById("av").classList.add("live");document.getElementById("st").innerText="🔴 LIVE...";u.onend=()=>{document.getElementById("av").classList.remove("live");document.getElementById("st").innerText="✅ Done"};speechSynthesis.speak(u)}
-function stop(){speechSynthesis.cancel();document.getElementById("av").classList.remove("live");document.getElementById("st").innerText="READY"}
-function mic(){let R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R)return alert("Use Chrome");let r=new R();r.onresult=e=>{document.getElementById("q").value=e.results[0][0].transcript;find(e.results[0][0].transcript)};r.start()}
-find("anxiety");
+function shareSasa(){
+let data={video:document.getElementById('v').src, text:document.getElementById('box').innerText, time:Date.now()};
+localStorage.setItem('tulwet_to_sasa',JSON.stringify(data));
+location.href='sasa://share?video='+encodeURIComponent(data.video);
+setTimeout(()=>{alert('COPIED FOR SASA:\n'+data.video+'\n'+data.text.slice(0,100));},600);
+}
 </script>
 </body>
 </html>
