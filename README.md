@@ -1,2 +1,87 @@
+
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tulwet AI Bible - Fixed</title><style>body{font-family:Arial;margin:0;background:#f0fdf4}.h{background:#166534;color:#fff;padding:15px;text-align:center}.s{padding:15px}input{width:100%;padding:13px;border-radius:12px;border:2px solid #166534;font-size:16px}.card{background:#fff;margin:10px;padding:15px;border-radius:12px;box-shadow:0 2px 5px #0002;cursor:pointer}.card.a{border:2px solid #16a34a;background:#dcfce7}.v{margin:15px;background:#000;border-radius:15px;padding:12px;text-align:center}#av{width:100%;height:280px;border-radius:12px;object-fit:cover;background:#111}.live{border:4px solid #22c55e;animation:p 1s infinite}@keyframes p{0%,100%{opacity:1}50%{opacity:.6}}.b{padding:14px 18px;border-radius:30px;border:none;font-weight:bold;margin:5px}.call{background:#facc15;width:75%}.end{background:#ef4444;color:#fff}.mic{background:#16a34a;color:#fff}</style></head><body><div class=h><h2>⛰️ TULWET AI BIBLE</h2><div>📍 Eldoret - Fixed Video + Audio</div></div><div class=s><input id=q placeholder="Problem: fear, anxiety, sick, school..." oninput="find(this.value)"></div><div id=list></div><div class=v><div id=st style="color:#fff;margin-bottom:8px">READY - Tap CALL</div><img id=av src="https://i.pravatar.cc/400?img=11"><div id=vd style="color:#fff;margin-top:10px;font-style:italic">Tap a verse then CALL</div><div><button class="b end" onclick="stop()">❌</button><button class="b call" onclick="go()">📞 CALL FROM TULWET</button><button class="b mic" onclick="mic()">🎤</button></div></div><script>const DB={anxiety:["Philippians 4:6-7 - Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.","1 Peter 5:7 - Cast all your anxiety on him because he cares for you."],fear:["Isaiah 41:10 - So do not fear, for I am with you; do not be dismayed, for I am your God.","2 Timothy 1:7 - For God has not given us a spirit of fear, but of power and love."],sick:["Jeremiah 30:17 - But I will restore you to health and heal your wounds, declares the Lord."],school:["Proverbs 3:5 - Trust in the Lord with all your heart."],default:["Matthew 7:7 - Ask and it will be given to you; seek and you will find; knock and the door will be opened."]};let sel=DB.default[0];function find(t){t=t.toLowerCase();let k="default";if(t.match(/anx|thera/))k="anxiety";else if(t.match(/fear|worry/))k="fear";else if(t.match(/sick|heal/))k="sick";else if(t.match(/school|fee|exam/))k="school";render(DB[k])}function render(a){let L=document.getElementById("list");L.innerHTML="";a.forEach((v,i)=>{let d=document.createElement("div");d.className="card"+(i==0?" a":"");d.innerHTML="<b>"+v.split(" - ")[0]+"</b><br>"+v.split(" - ").slice(1).join(" - ")+"<br><small style=color:green>👆 TAP TO SELECT</small>";d.onclick=()=>{document.querySelectorAll(".card").forEach(c=>c.classList.remove("a"));d.classList.add("a");sel=v;document.getElementById("vd").innerText=v};L.appendChild(d)});sel=a[0];document.getElementById("vd").innerText=sel}function go(){let av=document.getElementById("av");let st=document.getElementById("st");speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sel+". This sermon comes from Tulwet Mountain in Rift Valley. God sees you in Eldoret and loves you.");u.rate=.9;av.classList.add("live");st.innerText="🔴 LIVE - Pastor speaking...";u.onend=()=>{av.classList.remove("live");st.innerText="✅ Done - Call again"};speechSynthesis.speak(u)}function stop(){speechSynthesis.cancel();document.getElementById("av").classList.remove("live");document.getElementById("st").innerText="READY"}function mic(){let R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R)return alert("Use Chrome");let r=new R();r.onresult=e=>{document.getElementById("q").value=e.results[0][0].transcript;find(e.results[0][0].transcript)};r.start()}find("anxiety");</script></body></html>
+<html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TULWET - Language + Users + Real AI Video</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:Arial}
+.h{background:#166534;padding:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px}
+.lang select{padding:5px 8px;border-radius:15px;border:none;font-weight:bold;background:#facc15}
+.users{background:rgba(0,0,0,0.5);padding:4px 8px;border-radius:10px;font-size:10px}
+.main{height:100vh;display:flex;flex-direction:column}
+.vid{flex:1;position:relative;background:#111;display:flex;align-items:center;justify-content:center}
+video{width:100%;height:100%;object-fit:cover}
+#userCam{position:absolute;bottom:100px;right:10px;width:90px;height:120px;border-radius:12px;border:2px solid #22c55e;object-fit:cover;transform:scaleX(-1);z-index:5;background:#222}
+.badge{position:absolute;top:10px;left:10px;background:red;padding:4px 8px;border-radius:5px;font-size:10px;z-index:5;animation:bl 1s infinite}
+@keyframes bl{50%{opacity:0.5}}
+.bot{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.95));padding:10px;z-index:6}
+.verse{background:rgba(22,101,52,0.92);padding:10px;border-radius:10px;font-size:12px;max-height:110px;overflow:auto}
+.ctrl{display:flex;gap:5px;margin-top:6px}
+.b{flex:1;padding:10px;border:none;border-radius:20px;font-weight:bold;font-size:11px}
+.play{background:#facc15;color:#000}
+.stop{background:#ef4444;color:#fff}
+.topics{display:flex;gap:5px;overflow:auto;padding:5px 0}
+.topics button{background:rgba(255,255,255,0.15);color:#fff;border:1px solid #555;padding:5px 10px;border-radius:15px;font-size:10px;white-space:nowrap}
+.stats{display:flex;gap:10px;font-size:10px;margin-top:5px;color:#aaa}
+</style>
+</head><body>
+<div class="h">
+<div>⛰️ TULWET AI BIBLE</div>
+<div class="lang">
+<select id="langSel" onchange="changeLang()">
+<option value="en">🇬🇧 English</option>
+<option value="sw">🇰🇪 Kiswahili</option>
+<option value="kal">🌿 Kalenjin</option>
+<option value="en-sw">🇰🇪 Eng + Swa Mix</option>
+</select>
+</div>
+<div class="users">
+<div>👥 <span id="totalUsers">1,247</span> Total</div>
+<div>🟢 <span id="liveUsers">23</span> Live Now</div>
+</div>
+</div>
+
+<div class="main">
+<div class="vid">
+<video id="aiVideo" controls playsinline poster="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600">
+<source src="jesus-healing.mp4" type="video/mp4">
+</video>
+<video id="userCam" autoplay muted playsinline></video>
+<div class="badge">🔴 REAL AI VIDEO • <span id="langBadge">EN</span></div>
+<div class="bot">
+<div class="topics">
+<button onclick="playType('healing')">🩹 Healing</button>
+<button onclick="playType('fees')">💰 Fees</button>
+<button onclick="playType('fear')">😨 Fear</button>
+<button onclick="playType('anxiety')">😰 Anxiety</button>
+<button onclick="playType('family')">👨‍👩‍👧 Family</button>
+</div>
+<div class="verse" id="verse">Loading language...</div>
+<div class="stats">
+<span>📍 Eldoret • Tulwet Mt</span>
+<span>•</span>
+<span id="visitCount">You are visitor #...</span>
+<span>•</span>
+<span id="timeNow">Time</span>
+</div>
+<div class="ctrl">
+<button class="b" style="background:#fff;color:#000" onclick="startCam()">📷 Camera</button>
+<button class="b play" onclick="playType('healing')">▶️ PLAY VIDEO</button>
+<button class="b stop" onclick="stopAll()">⏹️ Stop</button>
+</div>
+<button onclick="listen()" style="width:100%;margin-top:6px;padding:10px;background:#16a34a;color:#fff;border:none;border-radius:20px">🎤 <span id="speakTxt">Speak Your Problem</span></button>
+</div>
+</div>
+</div>
+
+<script>
+// Language translations
+const LANG={
+en:{healing:{v:"Jeremiah 30:17 - I will restore you to health.",t:"Put your hand where it hurts. God heals now.",p:"Receive healing!"},
+fees:{v:"Philippians 4:19 - God will meet all needs.",t:"God sees fees letter. Miracle coming.",p:"Jehovah Jireh provides!"},
+fear:{v:"Isaiah 41:10 - Fear not, I am with you.",t:"Fear is lying. You are safe.",p:"Peace be still!"},
+anxiety:{v:"Philippians 4:6-7 - Present requests to God.",t:"Breathe in 4, hold 4, out 6.",p:"Peace guard your heart!"},
+family:{v:"Joshua 24:15 - We will serve the Lord.",t:"Family stress hard. God is father too.",p:"Restore this family!"},
+speak:"Speak Your Problem",welcome:"Welcome! Tap healing, fees, fear - Jesus will talk in your language!"},
+sw:{healing:{v:"Yeremia 30:17 - Nitakurudishia afya yako.",t:"Weka mkono mahali pa maumivu. Mungu anaponya sasa.",p:"Pokea uponyaji!"},
+fees:{v:"Wafilipi 4:19 - Mungu atak
